@@ -26,11 +26,21 @@ type LoginResponse {
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   login(loginInput: LoginInput!): LoginResponse!
+  removeUser(id: ID!): Boolean!
+  updateUser(id: ID!, updateUserInput: UpdateUserInput!): User!
 }
 
 type Query {
-  getUser(email: String!): User
   hello: String!
+  user(id: ID!): User
+  users: [User!]!
+}
+
+input UpdateUserInput {
+  email: String
+  firstName: String
+  lastName: String
+  password: String
 }
 
 type User {
