@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateRideInput {
+  dropoffLocation: String!
+  estimatedFare: Float!
+  pickupLocation: String!
+}
+
 input CreateUserInput {
   email: String!
   firstName: String!
@@ -24,6 +30,7 @@ type LoginResponse {
 }
 
 type Mutation {
+  createRide(createRideInput: CreateRideInput!): Ride!
   createUser(createUserInput: CreateUserInput!): User!
   login(loginInput: LoginInput!): LoginResponse!
   removeUser(id: ID!): Boolean!
@@ -31,9 +38,26 @@ type Mutation {
 }
 
 type Query {
+  getCurrentUser: User
   hello: String!
+  myRides: [Ride!]!
   user(id: ID!): User
   users: [User!]!
+}
+
+type Ride {
+  createdAt: DateTime!
+  driver: User
+  dropoffLocation: String!
+  estimatedFare: Float!
+  id: ID!
+  passenger: User!
+  pickupLocation: String!
+  status: String!
+}
+
+type Subscription {
+  rideUpdated: Ride!
 }
 
 input UpdateUserInput {

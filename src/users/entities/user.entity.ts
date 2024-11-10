@@ -30,4 +30,5 @@ export class User {
   @Field()
   @UpdateDateColumn()
   updatedAt: Date;
+    userId: any;
 }

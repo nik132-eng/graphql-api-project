@@ -12,6 +12,7 @@ import configuration from './config/configuration';
 import { AppResolver } from './app.resolver';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { RidesModule } from 'rides/rides.module';
 
 @Module({
   imports: [
@@ -62,6 +63,7 @@ import { AppService } from './app.service';
     AuthModule,
     UsersModule,
     WebsocketsModule,
+    RidesModule
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],
